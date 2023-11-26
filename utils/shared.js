@@ -3,20 +3,20 @@ async function getPrayerDates(ramadanDay) {
 
 
     let data = await fetchDates(requestYear);
-    const RamadanStartDate = new Date(data.data[0].date['hijri'].date);
+    const ramadanStartDate = new Date(data.data[0].date['hijri'].date);
 
     // check if Ramadan has already started if yes then fetch the data for the next year
-    if (hijriDatePassed(RamadanStartDate)) {
+    if (hijriDatePassed(ramadanStartDate)) {
         requestYear = requestYear + 1;
         data = fetchDates(requestYear);
     }
 
     const dayData = data.data[ramadanDay - 1];
-    const DayTimings = dayData['timings'];
+    const dayTimings = dayData['timings'];
 
 
     const formattedTimings = {};
-    Object.entries(DayTimings).forEach(([prayer, timing]) => {
+    Object.entries(dayTimings).forEach(([prayer, timing]) => {
         const prayerTime = timing.split(' ')[0];
         formattedTimings[prayer] = removeWhiteSpace(prayerTime);
     });

@@ -1,12 +1,12 @@
 # Ramadan Dishes API Documentation ✨
 
----
+
 
 ## About
 
 A node.js express app that determine the exact time to start preparing your Iftar!
 
------
+
 ## Run the app !
 
 - Install Dependencies

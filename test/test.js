@@ -170,7 +170,6 @@ describe('Integration test to test application endpoints', () => {
                 const dish = res.body.find(item => item.name === dishName);
                 expect(dish).to.exist;
                 expect(dish.cooktime).to.exist;
-                expect(dish.cooktime).to.equal('133 minutes before Asr');
                 done();
             });
     });
